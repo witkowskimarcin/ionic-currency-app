@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Waluty
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-item>
+        <ion-card-header>
+          <ion-card-title>Wybierz waluty</ion-card-title>
+        </ion-card-header>
+      </ion-item>
+        <ion-card-content>
+            <ion-button expand="block" (click)="hide_1()">Waluta wejściowa</ion-button>
+          <div *ngIf="hideMe_1">
+              <ion-list text-wrap *ngFor="let item of money_tab">
+                  <ion-item tappable (click)="toggleSection_1(item)">  
+                      <ion-label>
+                      {{item}}
+                    </ion-label>
+                    </ion-item>
+              </ion-list>
+          </div>
+          <ion-button expand="block" (click)="hide_2()">Waluta wyjściowa</ion-button>
+          <div *ngIf="hideMe_2">
+              <ion-list text-wrap *ngFor="let item of money_tab">
+                  <ion-item tappable (click)="toggleSection_2(item)">  
+                      <ion-label>
+                      {{item}}
+                    </ion-label>
+                    </ion-item>
+              </ion-list>
+          </div>
+          <!-- <ion-content>
+              <ion-list text-wrap *ngFor="let item of money_tab"  class="accordion-list" lines="none" detail="false" no-padding>
+                <ion-item tappable (click)="toggleSection(item)" >
+                    <ion-label>
+                        {{item}}
+                    </ion-label>
+                </ion-item>
+              </ion-list> 
+            </ion-content> -->
+          <!-- <ion-header>
+            <ion-toolbar color="primary">
+              <ion-title>
+                Waluta pierwsza
+              </ion-title>
+              <ion-button slot="end">
+                  <ion-button (click)="automaticClose = !automaticClose">
+                    <ion-icon slot="icon-only" name="close" *ngIf="automaticClose"></ion-icon>
+                    <ion-icon slot="icon-only" name="resize" *ngIf="!automaticClose"></ion-icon>
+                  </ion-button>
+                </ion-button>
+            </ion-toolbar>
+          </ion-header>
+
+          <ion-content>
+            <ion-list *ngFor="let item of information; let i =index;" class="accordion-list" lines="none" detail="false" no-padding>
+              <ion-item tappable (click)="toggleSection(i)" [ngClass]="{'section-active': item.open, 'section': !item.open}">
+                  <ion-icon slot="start" name="arrow-forward" *ngIf="!item.open"></ion-icon>
+                  <ion-icon slot="start" name="arrow-down" *ngIf="item.open"></ion-icon>
+                  <ion-label>
+                    {{ item.BGN}}
+                  </ion-label>
+              </ion-item>
+            </ion-list> 
+          </ion-content> -->
+          <!-- <div class="ion-padding">
+              <ion-button expand="block" (click)="onChangeText()">Waluta wejściowa</ion-button>
+              <ion-button expand="block" (click)="onChangeText()">Waluta wyjściowa</ion-button>
+          </div> -->
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-card>
+          <ion-item>
+              <ion-card-header>
+                <ion-card-title>Kalkulator walutowy</ion-card-title>
+              </ion-card-header>
+            </ion-item>
+          <ion-card-content>
+      <ion-text  color="primary">{{  Money_first  }} na {{  Money_second }}</ion-text>
+      <p>Kurs po : {{ course }}</p>
+    <p>Wprowadz liczbe :</p>
+    <!-- Number type input -->
+    <ion-input id="input" type="number" [(ngModel)]="oldvalue" value="000"></ion-input>
+    <ion-button expand="block" (click)="Getvalue()">Oblicz</ion-button>
+    <ion-text color="danger">Kwota po wymianie : {{resolts}}</ion-text>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+      
+</ion-content>

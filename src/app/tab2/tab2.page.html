@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Wykresy
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+ 
+    
+      
+      <ion-card>
+        <ion-button expand="block" (click)="hide_3()">Waluta wejciowa</ion-button>
+        <div *ngIf="hideMe_3">
+            <ion-list text-wrap *ngFor="let item of money_tab">
+                <ion-item>  
+                    <ion-label tappable (click)="toggleSection_3(item)">
+                    {{item}}
+                  </ion-label>
+                  </ion-item>
+            </ion-list>
+        </div>
+        <ion-button expand="block" (click)="show_1()">Tydzień</ion-button>
+        <ion-button expand="block" (click)="show_2()">Miesiac</ion-button>
+        <ion-button expand="block" (click)="show_3()">Rok</ion-button>
+          <div echarts [options]="options1" [merge]="updateOptions1" class="demo-chart"></div>
+
+      </ion-card>
+
+
+
+
+      
+</ion-content>
